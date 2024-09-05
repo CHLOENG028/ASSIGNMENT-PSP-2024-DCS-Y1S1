@@ -1,0 +1,121 @@
+#include<iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+void breakfastorder(int inputa, int quantity); 
+void order();
+
+
+void menu() {
+	int inputo;
+	cout << "\n\nMenu" << endl;
+	do {
+		cout << "\n1. Breakfast\n2. Lunch\n3. Dinner\nPlease enter your choic: ";
+		cin >> inputo;
+		switch (inputo) {
+		case 1:
+		{
+			int inputa;
+			int quantity; 
+			cout << "Enter your choice (1-9): ";
+			cin >> inputa;
+			cout << "Enter quantity: ";
+			cin >> quantity;
+			breakfastorder(inputa, quantity);
+			break;
+		}
+		case 2:
+			cout << "test";
+			break;
+		case 3:
+			cout << "test";
+			break;
+		default:
+			cout << "Invalid number, please try again.";
+		}
+	} while (inputo != 1 && inputo != 2 && inputo != 3);
+
+}
+
+void breakfastorder(int inputa, int quantity) {
+
+	double pricefood[9] = { 6.90,6.90,4.90,8.90,7.90,5.90,5.20,5.20,5.20 };
+	int index;
+	cout << "\n" << "========================================================================================================================"  << endl;
+	cout << setw(15) << "Type" << setw(15) << "II" << setw(21) << "Sandwich Set" << setw(9) << "II" << setw(20) << "Muffin Set" << setw(10) << "II" << setw(20) << "Waffle Set" << endl;
+	cout << "========================================================================================================================" << endl;
+	cout << setw(10) << " " << setw(20) << "II" << setw(23) << "1. Ham Sandwich Set" << setw(7) << "II"; //ham sandwich
+	cout << setw(22) << "4. Beef Muffin set" << setw(8) << "II"; //Beef muffin
+	cout << setw(15) << setw(26) << "7. Chocolate Waffle Set"; //Chocolate Waffle
+
+	cout << setw(10) << " " << setw(24) << "II" << setw(14) << "RM " << fixed << setprecision(2) << pricefood[0] << setw(12) << "II"; //price 0 for ham sandwich
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[3] << setw(12) << "II"; //price 3 for beef  muffin  
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[6];//price 6 for chocolate  Waffle 
+
+	cout << "\n========================================================================================================================" << endl;
+	cout << setw(30) << "II" << setw(25) << "2. Sausage Sandwich Set" << setw(5) << "II"; //sausage sandwich
+	cout << setw(23) << "5. Chicken Muffin Set" << setw(7) << "II"; //chicken muffin
+	cout << setw(28) << "8. Strawberry Waffle Set"; //Strawberry Waffle
+
+
+	cout << setw(32) << "II" << setw(14) << "RM " << fixed << setprecision(2) << pricefood[1] << setw(12) << "II"; //price 1 for sausage sandwich
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[4] << setw(12) << "II";//price 4 for chicken muffin
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[7];//price 7 for strawberry  Waffle 
+
+	cout << "\n========================================================================================================================" << endl;
+	cout << setw(30) << "II" << setw(20) << "3.Scrambled Egg" << setw(10) << "II"; //egg sandwich  
+	cout << setw(22) << "6. Egg Muffin Set" << setw(8) << "II"; //egg muffin
+	cout << setw(22) << "9. Kaya Waffle Set"; //Kaya  Waffle
+
+	cout << setw(10) << " " << setw(28) << "II" << setw(19) << "Sandwich set" << setw(11) << "II";
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[5] << setw(12) << "II";//price 5 for egg muffin
+	cout << setw(14) << "RM " << fixed << setprecision(2) << pricefood[8] << endl; //price 8 for kaya  Waffle
+	cout << setw(30) << "II" << setw(13) << "RM " << fixed << setprecision(2) << pricefood[2] << setw(13) << "II" << setw(30) << "II";  //price 2 for egg sandwich
+
+	cout << "\n========================================================================================================================" << endl;
+
+	void order() {
+		//order
+		cout << "Enter your choice (1 - 9): ";
+		cin >> inputa;
+		cout << "Enter quantity: ";
+		cin >> quantity;
+
+
+		switch (inputa) {
+		case '1':index = 0; break;
+		case '2':index = 1; break;
+		case '3':index = 2; break;
+		case '4':index = 3; break;
+		case '5':index = 4; break;
+		case '6':index = 5; break;
+		case '7':index = 6; break;
+		case '8':index = 7; break;
+		case '9':index = 8; break;
+		default:
+			cout << "Invalid choice, please try again." << endl;
+		}
+		double total = pricefood[index] * quantity;
+		cout << "You have ordered: item" << inputa << endl;
+		cout << "Total cost: RM " << fixed << setprecision(2) << total << endl;
+	}
+}
+
+int main() {
+	int input;
+	cout << setw(50) << "Burglish" << endl;
+	cout << "\nWelcome to BURGLISH menu!" << endl << endl;
+	cout << "1. Order entry\n2. Reporting\n3. Exit\n";
+	cout << "Enter your choice (1-3)" << endl;
+	cout << "choice : ";
+	cin >> input;
+	do {
+		if (input == 1)
+			menu();
+		else
+			cout << "\nInvalid number, please try again.";
+	} while (input != 1, 2, 3);
+	return 0;
+}
+
